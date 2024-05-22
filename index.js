@@ -1,11 +1,14 @@
+require('dotenv').config()
 const express = require('express')
 const { MongoClient, ObjectId } = require('mongodb')
+
 const app = express()
 
 // Receber o corpo da requisição em json
 app.use(express.json())
 
-const dbUrl = 'mongodb+srv://admin:1a23456789@clusteraula.f3ld0ox.mongodb.net'
+// Informações do Banco de Dados
+const dbUrl = process.env.DATABASE_URL
 const dbName = 'MongoDB_implementacao'
 
 // Declarar a função de conxeção com o Banco de dados
